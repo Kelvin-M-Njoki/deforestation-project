@@ -1,4 +1,6 @@
 --forest difference across countries between 2016 and 1990
+
+
 WITH t1 AS(SELECT *
  FROM forestation
  WHERE year=2016 AND country_name != 'World'),
@@ -14,6 +16,9 @@ WITH t1 AS(SELECT *
  ON t1.country_code = t2.country_code
  WHERE t1.forest_area_sqkm - t2.forest_area_sqkm IS NOT NULL
 ORDER BY forest_difference DESC;
+
+
+
 --countries with largest percentage increase in forest area from 1990 to 2016
 WITH t2 AS(SELECT *
  FROM forestation
@@ -33,6 +38,10 @@ JOIN t3
 ON t2.country_code = t3.country_code
 WHERE t2.forest_area_sqkm - t3.forest_area_sqkm IS NOT NULL
 ORDER BY per_difference DESC;
+
+
+
+
 --forest difference across countries between 2016 and 1990
 WITH t1 AS(SELECT *
  FROM forestation
@@ -50,6 +59,11 @@ WITH t1 AS(SELECT *
  ON t1.country_code = t2.country_code
  WHERE t1.forest_area_sqkm - t2.forest_area_sqkm IS NOT NULL
 ORDER BY forest_difference ;
+
+
+
+
+
 --countries with largest percentage decrease in forest area from 1990 to 2016
 WITH t2 AS(SELECT *
  FROM forestation
